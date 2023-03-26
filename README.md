@@ -96,8 +96,10 @@ Handle the following custom conversion specifier:
 [16. * ]
 All the above options work well together.
 
+---------------------------------------------
 
 Contributors
+
 Marwan ElZaher - marawanmzaher@gmail.com
 
 Bakare Fatimoh - bakarefatimoh09@gmail.com
