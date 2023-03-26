@@ -1,6 +1,6 @@
 #include "main.h"
 
-/** PRINT CHAR **/
+/************************* PRINT CHAR *************************/
 
 /**
  * print_char - Prints a char
@@ -44,34 +44,32 @@ int print_string(va_list types, char buffer[],
 	if (str == NULL)
 	{
 		str = "(null)";
-		if (precision >= 6)
-			str = "      ";
+	if (precision >= 6)
+		str = "      ";
 	}
 
 	while (str[length] != '\0')
-		length++;
-
+	length++;
 	if (precision >= 0 && precision < length)
-		length = precision;
+	length = precision;
 
 	if (width > length)
 	{
-		if (flags & F_MINUS)
-		{
-			write(1, &str[0], length);
-			for (i = width - length; i > 0; i--)
-				write(1, " ", 1);
-			return (width);
-		}
-		else
-		{
-			for (i = width - length; i > 0; i--)
-				write(1, " ", 1);
-			write(1, &str[0], length);
-			return (width);
-		}
+	if (flags & F_MINUS)
+	{
+		write(1, &str[0], length);
+		for (i = width - length; i > 0; i--)
+		write(1, " ", 1);
+		return (width);
 	}
-
+	else
+	{
+	for (i = width - length; i > 0; i--)
+	write(1, " ", 1);
+	write(1, &str[0], length);
+	return (width);
+	}
+	}
 	return (write(1, str, length));
 }
 /************************* PRINT PERCENT SIGN *************************/
@@ -176,13 +174,13 @@ int print_binary(va_list types, char buffer[],
 	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
 		sum += a[i];
-		if (sum || i == 31)
-		{
-			char z = '0' + a[i];
+	if (sum || i == 31)
+	{
+	char z = '0' + a[i];
 
-			write(1, &z, 1);
-			count++;
-		}
+	write(1, &z, 1);
+	count++;
+	}
 	}
 	return (count);
 }
